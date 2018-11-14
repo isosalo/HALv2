@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth'; //Importing AngularFireAuth
+
+//Import the pages for method-links here
 import {HomePage} from '../home/home';
+import {RegisterPage} from '../register/register';
 
 @Component({
  selector: 'page-login',
- templateUrl: 'login.html'
+ templateUrl: 'login.html',
 })
 export class LoginPage {
 
@@ -25,7 +28,7 @@ export class LoginPage {
 //The functions "register" and "login" :
 register(email, password) {
 this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password).then((res) => {
- this.navCtrl.setRoot('RegisterPage', {email});
+ this.navCtrl.setRoot(RegisterPage, {email});
 });
 }
 login(email, password) {
